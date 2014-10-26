@@ -8,6 +8,11 @@
     "compile": "node compile.js",
     "cp": "npm run compile && npm test && npm publish"
   },
+  "bugs": "https://github.com/seangenabe/symbol-enum/issues",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/seangenabe/symbol-enum.git"
+  },
   "keywords": [
     "symbol",
     "enum"
