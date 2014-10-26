@@ -1,0 +1,23 @@
+{
+  "name": "symbol-enum",
+  "version": "1.0.0",
+  "description": "Enum with symbols",
+  "main": "es5.js",
+  "scripts": {
+    "test": "node test.js",
+    "compile": "node compile.js",
+    "cp": "npm run compile && npm test && npm publish"
+  },
+  "keywords": [
+    "symbol",
+    "enum"
+  ],
+  "author": "Sean Genabe <seangenabe@outlook.com>",
+  "license": "MIT",
+  "optionalDependencies": {
+    "traceur": "0.0.72"
+  },
+  "devDependencies": {
+    "traceur": "0.0.72"
+  }
+}
