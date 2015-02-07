@@ -4,13 +4,31 @@ Enum with symbols.
 
 ## API
 
-### `var MyEnum = new Enum(...keys)`
+### `#constructor(...keys)`
+````javascript
+var MyEnum = new Enum('a', 'b', 'c')
+````
 
 Creates a new Enum with the specified keys.
 
-### `MyEnum[key]`
+### `#{key}`
+````javascript
+var val = MyEnum.a // Symbol(a)
+````
 
-Get your key's value here.
+Retrieves the symbol corresponding to the key.
+
+### `#{symbol}`
+````javascript
+MyEnum[val] // 'a'
+````
+
+Retrieves the key corresponding to the symbol.
+
+## Versions
+
+`symbol-enum@latest` (v2) - ES5-compatible version, as long the global Symbol exists.
+`symbol-enum@next` (v3) - ES6-compatible version.
 
 ## License
 

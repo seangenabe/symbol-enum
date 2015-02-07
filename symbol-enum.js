@@ -2,11 +2,19 @@
 class SymbolEnum {
 
   constructor(...keys) {
-    for (let key of keys) {
+    for (var key of keys) {
+      var sym = Symbol(key)
+
       Object.defineProperty(this, key, {
         enumerable: true,
         configurable: false,
-        value: Symbol()
+        value: sym
+      })
+
+      Object.defineProperty(this, sym, {
+        enumerable: false,
+        configurable: false,
+        value: key
       })
     }
     Object.freeze(this)

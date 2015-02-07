@@ -2,11 +2,9 @@
   "name": "symbol-enum",
   "version": "1.0.1-1",
   "description": "Enum with symbols",
-  "main": "es5.js",
+  "main": "symbol-enum.js",
   "scripts": {
-    "test": "node test.js",
-    "compile": "node compile.js",
-    "cp": "npm run compile && npm test && npm publish"
+    "test": "mocha"
   },
   "bugs": "https://github.com/seangenabe/symbol-enum/issues",
   "repository": {
@@ -19,10 +17,7 @@
   ],
   "author": "Sean Genabe <seangenabe@outlook.com>",
   "license": "MIT",
-  "optionalDependencies": {
-    "traceur": "0.0.72"
-  },
   "devDependencies": {
-    "traceur": "0.0.72"
+    "mocha": "^2.1.0"
   }
 }
