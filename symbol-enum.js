@@ -1,25 +1,21 @@
 
-class SymbolEnum {
+function SymbolEnum() {
+  Array.prototype.forEach.call(arguments, (function(key) {
+    var sym = Symbol(key)
 
-  constructor(...keys) {
-    for (var key of keys) {
-      var sym = Symbol(key)
+    Object.defineProperty(this, key, {
+      enumerable: true,
+      configurable: false,
+      value: sym
+    })
 
-      Object.defineProperty(this, key, {
-        enumerable: true,
-        configurable: false,
-        value: sym
-      })
-
-      Object.defineProperty(this, sym, {
-        enumerable: false,
-        configurable: false,
-        value: key
-      })
-    }
-    Object.freeze(this)
-  }
-
+    Object.defineProperty(this, sym, {
+      enumerable: false,
+      configurable: false,
+      value: key
+    })
+  }).bind(this))
+  Object.freeze(this)
 }
 
 module.exports = SymbolEnum
