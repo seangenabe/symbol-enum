@@ -2,12 +2,9 @@
 
 Enum with symbols.
 
-## Versions
-
-`npm install` your preferred version accordingly.
-
-* `symbol-enum@latest` (v2): ES5-compatible version, as long the global Symbol exists.
-* `symbol-enum@next` (v3): ES6-compatible version.
+[![Build Status](https://travis-ci.org/seangenabe/symbol-enum.svg?branch=master)](https://travis-ci.org/seangenabe/symbol-enum)
+[![Dependency Status](https://david-dm.org/seangenabe/symbol-enum.svg)](https://david-dm.org/seangenabe/symbol-enum)
+[![devDependency Status](https://david-dm.org/seangenabe/symbol-enum/dev-status.svg)](https://david-dm.org/seangenabe/symbol-enum#info=devDependencies)
 
 ## API
 

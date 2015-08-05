@@ -1,6 +1,6 @@
 
 var assert = require('assert')
-var Enum = require('../')
+var Enum = require('..')
 
 describe('SymbolEnum', function() {
 

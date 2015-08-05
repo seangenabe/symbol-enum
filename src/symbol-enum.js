@@ -1,6 +1,6 @@
 'use strict'
 
-class SymbolEnum {
+export default class SymbolEnum {
 
   constructor(...keys) {
     for (var key of keys) {
@@ -22,5 +22,3 @@ class SymbolEnum {
   }
 
 }
-
-module.exports = SymbolEnum
