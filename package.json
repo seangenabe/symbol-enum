@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "babel src -d lib --source-maps --optional runtime",
     "watch": "babel src -d lib --watch --source-maps --optional runtime",
-    "test": "npm run compile && mocha",
+    "test": "npm run compile && mocha --compilers js:babel/register",
     "prepublish": "npm run compile"
   },
   "bugs": "https://github.com/seangenabe/symbol-enum/issues",
@@ -21,10 +21,10 @@
   "author": "Sean Genabe <seangenabe@outlook.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "babel": "^5.8.20"
   },
   "dependencies": {
-    "babel": "^5.8.20",
     "babel-runtime": "^5.8.20"
   }
 }
