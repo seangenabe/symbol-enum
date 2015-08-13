@@ -1,10 +1,12 @@
 'use strict'
 
+var _Symbol = require('babel-runtime/core-js/symbol')['default'];
+
 export default class SymbolEnum {
 
   constructor(...keys) {
     for (var key of keys) {
-      var sym = Symbol(key)
+      var sym = _Symbol(key)
 
       Object.defineProperty(this, key, {
         enumerable: true,
