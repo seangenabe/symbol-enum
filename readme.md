@@ -68,10 +68,10 @@ For your convenience, `#[SymbolEnum.keys]` and `#[SymbolEnum.values]` are also a
 
 #### Exception: `#constructor`
 
-Since we're using classes here, that means `[constructor][Object.prototype.constructor]` will still be defined by default. No worries, if you specify `constructor` as a key, it will be overridden.
+Since we're using classes here, that means [`constructor`][Object.prototype.constructor] will still be defined by default. No worries, if you specify `constructor` as a key, it will be overridden.
 
 ## License
 
 MIT
 
-[Object.prototype.constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+[Object-prototype-constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
