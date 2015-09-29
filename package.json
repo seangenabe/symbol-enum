@@ -1,13 +1,13 @@
 {
   "name": "symbol-enum",
-  "version": "3.1.1",
+  "version": "3.2.0-1",
   "description": "Enum with symbols",
   "main": "lib/symbol-enum.js",
   "scripts": {
-    "compile": "babel -d lib --source-maps --optional runtime src",
-    "watch": "babel --watch -d lib --source-maps --optional runtime src",
+    "compile": "babel src -d lib --source-maps --optional es6.spec.symbols,runtime",
+    "watch": "npm run compile -- --watch",
     "pretest": "npm run compile",
-    "test:compile": "babel -d test/lib --source-maps --optional runtime test/src",
+    "test:compile": "babel -d test/lib --source-maps --optional es6.spec.symbols,runtime test/src",
     "test": "npm run test:compile && mocha test/lib",
     "prepublish": "npm run compile"
   },
@@ -23,10 +23,11 @@
   "author": "Sean Genabe <seangenabe@outlook.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^5.8.21",
+    "babel": "^5.8.23",
+    "chai": "^3.3.0",
     "mocha": "^2.1.0"
   },
   "dependencies": {
-    "babel-runtime": "^5.8.20"
+    "babel-runtime": "^5.8.25"
   }
 }
