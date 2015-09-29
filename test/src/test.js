@@ -6,12 +6,20 @@ let {expect} = chai
 
 chai.use(function(_chai, utils) {
   let {Assertion} = _chai
+
   utils.addProperty(Assertion.prototype, 'iterator', function() {
     let obj = this._obj
     new Assertion(obj.next).a('function')
     let iteratorFunc = obj[Symbol.iterator]
     new Assertion(iteratorFunc).a('function')
     new Assertion(iteratorFunc.bind(obj)()).equals(obj)
+  })
+
+  utils.addProperty(Assertion.prototype, 'symbol', function() {
+    let obj = this._obj
+    this.assert(typeof this._obj === 'symbol',
+      'expected #{this} to be a symbol',
+      'expected #{this} to not be a symbol')
   })
 })
 
@@ -22,7 +30,7 @@ describe('runtime', function() {
   })
 
   it('should define Symbol and have proper typeof', function() {
-    expect(Symbol()).to.be.a('symbol')
+    expect(Symbol()).to.be.a.symbol
   })
 
 })
@@ -43,11 +51,11 @@ describe('SymbolEnum', function() {
   })
 
   it('should have Symbol values', function() {
-    expect(TestEnum.a).to.be.a('symbol')
+    expect(TestEnum.a).to.be.a.symbol
   })
 
   it('should enumerate keys', function() {
-    expect(Enum.keys).to.be.a('symbol')
+    expect(Enum.keys).to.be.a.symbol
     let iterator = TestEnum[Enum.keys]()
     expect(iterator).to.be.an.iterator
     let keys = Array.from(iterator)
@@ -56,7 +64,7 @@ describe('SymbolEnum', function() {
   })
 
   it('should enumerable values', function() {
-    expect(Enum.values).to.be.a('symbol')
+    expect(Enum.values).to.be.a.symbol
     var iterator = TestEnum[Enum.values]()
     expect(iterator).to.be.an.iterator
     var values = Array.from(iterator)
@@ -75,7 +83,7 @@ describe('SymbolEnum', function() {
   })
 
   it('should have the correct size', function() {
-    expect(Enum.size).to.be.a('symbol')
+    expect(Enum.size).to.be.a.symbol
     expect(TestEnum[Enum.size]).to.equal(2)
   })
 
@@ -88,16 +96,16 @@ describe('SymbolEnum', function() {
 
   it('should underscore provided keys', function() {
     var AEnum = new Enum('keys', 'foo')
-    expect(AEnum.keys).to.be.a('symbol')
+    expect(AEnum.keys).to.be.a.symbol
     expect(AEnum._keys).to.be.a('function')
     expect(AEnum._keys()).to.be.an.iterator
     var BEnum = new Enum('_values', 'values')
-    expect(BEnum.values).to.be.a('symbol')
-    expect(BEnum._values).to.be.a('symbol')
+    expect(BEnum.values).to.be.a.symbol
+    expect(BEnum._values).to.be.a.symbol
     expect(BEnum.__values).to.be.a('function')
     expect(BEnum.__values()).to.be.an.iterator
     var CEnum = new Enum('size')
-    expect(CEnum.size).to.be.a('symbol')
+    expect(CEnum.size).to.be.a.symbol
     expect(CEnum._size).to.equal(1)
   })
 
@@ -114,7 +122,7 @@ describe('SymbolEnum', function() {
 
   it('should override constructor when provided', function() {
     var CEnum = new Enum('constructor', 'baz')
-    expect(CEnum.constructor).to.be.a('symbol')
+    expect(CEnum.constructor).to.be.a.symbol
     expect(CEnum[CEnum.constructor]).to.equal('constructor')
   })
 
@@ -124,4 +132,5 @@ describe('SymbolEnum', function() {
       expect(TestEnum[property]).to.not.equal(7)
     }
   })
+  
 })
