@@ -74,4 +74,4 @@ Since we're using classes here, that means [`constructor`][Object.prototype.cons
 
 MIT
 
-[Object-prototype-constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+[Object.prototype.constructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
