@@ -1,6 +1,6 @@
 {
   "name": "symbol-enum",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Enum with symbols",
   "main": "lib/symbol-enum.js",
   "scripts": {
