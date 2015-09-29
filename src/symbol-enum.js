@@ -13,7 +13,6 @@ class SymbolEnum extends null {
     hiddenSet(this, priv, {})
     var pairs = []
     this[priv].pairs = pairs
-    this[priv].keys = keys
     for (var key of keys) {
       var sym = Symbol(key)
 
@@ -60,7 +59,7 @@ class SymbolEnum extends null {
   }
 
   [Symbol.iterator]() {
-    return Array.prototype[Symbol.iterator].call(this[priv].pairs)
+    return this[priv].pairs[Symbol.iterator]()
   }
 
   static get keys() {
