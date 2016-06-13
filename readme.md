@@ -10,7 +10,7 @@ Enum with symbols.
 ## Usage
 
 ```javascript
-var SymbolEnum = require('symbol-enum')
+const SymbolEnum = require('symbol-enum')
 ```
 
 ### `#constructor(...keys)`
@@ -18,7 +18,7 @@ var SymbolEnum = require('symbol-enum')
 Creates a new Enum with the specified keys.
 
 ````javascript
-var MyEnum = new SymbolEnum('a', 'b', 'c')
+const MyEnum = new SymbolEnum('a', 'b', 'c')
 ````
 
 ### `#[`*key*`]`
@@ -26,7 +26,7 @@ var MyEnum = new SymbolEnum('a', 'b', 'c')
 Retrieves the symbol corresponding to the key.
 
 ````javascript
-var val = MyEnum.a
+const val = MyEnum.a
 val // Symbol(a)
 ````
 
@@ -54,13 +54,36 @@ Returns an iterator that can be used to iterate through the values.
 Array.from(MyEnum[SymbolEnum.values]) // "[ Symbol(a), Symbol(b), Symbol(c) ]"
 ```
 
+### `#[SymbolEnum.has](key)`
+
+Returns whether the enum contains the specified key.
+
+```javascript
+MyEnum[SymbolEnum.has]('b') // true
+```
+
+### `#[SymbolEnum.hasValue](value)`
+
+Returns whether the enum contains the specified value.
+
+```javascript
+MyEnum[Symbol.hasValue](MyEnum.c) // true
+```
+
 ### `#[SymbolEnum.size]`
 
 Returns the number of keys passed to the constructor.
 
 ### 'Underscore'd properties
 
-For your convenience, `#[SymbolEnum.keys]` and `#[SymbolEnum.values]` are also available directly on the object itself as `#keys` and `#values` but only if you don't specify `keys` and `values` as a member of the enum itself. If you do, underscores will be prepended to the property name until it becomes available. For example, if you added both `keys` and `_keys` in the Enum, `#[SymbolEnum.keys]` will also be available at `#__keys`.
+For your convenience, the following properties are also available directly on the object itself, but only if you don't specify `keys` and `values` as a member of the enum itself.
+
+* `#[SymbolEnum.keys]` as `keys`
+* `#[SymbolEnum.values]` as `values`
+* `#[SymbolEnum.has]` as `has`
+* `#[SymbolEnum.hasValue]` as `hasValue`
+
+If you do, underscores will be prepended to the property name until it becomes available. For example, if you added both `keys` and `_keys` in the Enum, `#[SymbolEnum.keys]` will also be available at `#__keys`.
 
 ### Extends from null
 
