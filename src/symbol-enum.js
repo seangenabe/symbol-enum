@@ -3,6 +3,8 @@
 var k = Symbol('keys'),
   v = Symbol('values'),
   size = Symbol('size'),
+  has = Symbol('has'),
+  hasValue = Symbol('hasValue'),
   priv = Symbol('private')
 
 class SymbolEnum extends null {
@@ -27,13 +29,17 @@ class SymbolEnum extends null {
       pairs.push([key, sym])
     }
 
-    hiddenSet(this, underscoreProperty(this, 'keys'), function getKeys() {
-      return this[k]()
-    })
+    hiddenSet(this, underscoreProperty(this, 'keys'), SymbolEnum.prototype[k])
 
-    hiddenSet(this, underscoreProperty(this, 'values'), function getValues() {
-      return this[v]()
-    })
+    hiddenSet(this, underscoreProperty(this, 'values'), SymbolEnum.prototype[v])
+
+    hiddenSet(this, underscoreProperty(this, 'has'), SymbolEnum.prototype[has])
+
+    hiddenSet(
+      this,
+      underscoreProperty(this, 'hasValue'),
+      SymbolEnum.prototype[hasValue]
+    )
 
     Object.defineProperty(this, underscoreProperty(this, 'size'), {
       enumerable: false,
@@ -58,6 +64,14 @@ class SymbolEnum extends null {
     return this[priv].pairs.length
   }
 
+  [has](key) {
+    return typeof this[key] === 'symbol'
+  }
+
+  [hasValue](value) {
+    return typeof this[value] === 'string'
+  }
+
   [Symbol.iterator]() {
     return this[priv].pairs[Symbol.iterator]()
   }
@@ -72,6 +86,14 @@ class SymbolEnum extends null {
 
   static get size() {
     return size
+  }
+
+  static get has() {
+    return has
+  }
+
+  static get hasValue() {
+    return hasValue
   }
 
   static get SymbolEnum() {
