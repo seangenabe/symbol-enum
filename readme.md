@@ -4,8 +4,10 @@ Enum with symbols.
 
 [![npm](https://img.shields.io/npm/v/symbol-enum.svg?style=flat-square)](https://www.npmjs.com/package/symbol-enum)
 [![Build Status](https://img.shields.io/travis/seangenabe/symbol-enum/master.svg?style=flat-square)](https://travis-ci.org/seangenabe/symbol-enum)
+[![Coverage Status](https://img.shields.io/coveralls/seangenabe/symbol-enum/master.svg?style=flat-square)](https://coveralls.io/github/seangenabe/symbol-enum?branch=master)
 [![Dependency Status](https://img.shields.io/david/seangenabe/symbol-enum.svg?style=flat-square)](https://david-dm.org/seangenabe/symbol-enum)
 [![devDependency Status](https://img.shields.io/david/dev/seangenabe/symbol-enum.svg?style=flat-square)](https://david-dm.org/seangenabe/symbol-enum#info=devDependencies)
+[![node](https://img.shields.io/node/v/symbol-enum.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Usage
 
