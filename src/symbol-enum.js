@@ -11,9 +11,6 @@ const SymbolEnumBase = (() => {
   SymbolEnumBase.prototype = Object.create(null)
 
   function SymbolEnumBase() {
-    if (!this instanceof SymbolEnumBase) {
-      throw new TypeError("Cannot call a class as a function")
-    }
   }
 
   return SymbolEnumBase
