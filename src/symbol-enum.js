@@ -1,22 +1,33 @@
 'use strict'
 
-var k = Symbol('keys'),
+const k = Symbol('keys'),
   v = Symbol('values'),
   size = Symbol('size'),
   has = Symbol('has'),
   hasValue = Symbol('hasValue'),
   priv = Symbol('private')
 
-class SymbolEnum extends null {
+const SymbolEnumBase = (() => {
+  SymbolEnumBase.prototype = Object.create(null)
+
+  function SymbolEnumBase() {
+    if (!this instanceof SymbolEnumBase) {
+      throw new TypeError("Cannot call a class as a function")
+    }
+  }
+
+  return SymbolEnumBase
+})()
+
+class SymbolEnum extends SymbolEnumBase {
 
   constructor(...keys) {
     super()
-
     hiddenSet(this, priv, {})
-    var pairs = []
+    let pairs = []
     this[priv].pairs = pairs
-    for (var key of keys) {
-      var sym = Symbol(key)
+    for (let key of keys) {
+      let sym = Symbol(key)
 
       Object.defineProperty(this, key, {
         enumerable: true,
@@ -72,8 +83,11 @@ class SymbolEnum extends null {
     return typeof this[value] === 'string'
   }
 
-  [Symbol.iterator]() {
-    return this[priv].pairs[Symbol.iterator]()
+  *[Symbol.iterator]() {
+    for (let pair of this[priv].pairs) {
+      // Return a new array each time to prevent mutation.
+      yield pair.slice()
+    }
   }
 
   static get keys() {
@@ -96,9 +110,6 @@ class SymbolEnum extends null {
     return hasValue
   }
 
-  static get SymbolEnum() {
-    return SymbolEnum
-  }
 }
 
 module.exports = SymbolEnum
