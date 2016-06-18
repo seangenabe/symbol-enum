@@ -17,6 +17,11 @@ tap.test('constructor', t => {
 
   t.ok(typeof TestEnum.a === 'symbol', "should have Symbol values")
 
+  t.throws(() => Enum('c', 'd'), TypeError, "should throw when called as func")
+
+  t.false(TestEnum instanceof Object,
+    "should not inherit from Object.prototype")
+
   t.end()
 })
 
