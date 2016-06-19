@@ -21,5 +21,8 @@
     "@f/is-iterator": "^1.0.1",
     "lodash.isequal": "^4.2.0",
     "tap": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }
