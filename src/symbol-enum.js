@@ -1,5 +1,3 @@
-'use strict'
-
 const k = Symbol('keys'),
   v = Symbol('values'),
   size = Symbol('size'),

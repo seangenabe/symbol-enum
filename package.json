@@ -4,7 +4,7 @@
   "description": "Enum with symbols",
   "main": "src/symbol-enum.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "ava"
   },
   "bugs": "https://github.com/seangenabe/symbol-enum/issues",
   "repository": {
@@ -19,8 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@f/is-iterator": "^1.0.1",
-    "lodash.isequal": "^4.2.0",
-    "tap": "^8.0.1"
+    "ava": "^0.17.0"
   },
   "engines": {
     "node": ">=6"
