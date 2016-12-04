@@ -4,7 +4,8 @@
   "description": "Enum with symbols",
   "main": "src/symbol-enum.js",
   "scripts": {
-    "test": "ava"
+    "test": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "bugs": "https://github.com/seangenabe/symbol-enum/issues",
   "repository": {
@@ -19,7 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "@f/is-iterator": "^1.0.1",
-    "ava": "^0.17.0"
+    "ava": "^0.17.0",
+    "coveralls": "^2.11.15",
+    "nyc": "^10.0.0"
   },
   "engines": {
     "node": ">=6"
