@@ -1,5 +1,7 @@
 # SymbolEnum
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/seangenabe/symbol-enum.svg)](https://greenkeeper.io/)
+
 Enum with symbols.
 
 [![npm](https://img.shields.io/npm/v/symbol-enum.svg?style=flat-square)](https://www.npmjs.com/package/symbol-enum)
