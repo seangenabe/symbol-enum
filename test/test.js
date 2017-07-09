@@ -1,4 +1,5 @@
 const t = require('ava')
+const { compare } = require('concordance')
 const isIterator = require('@f/is-iterator')
 const Enum = require('..')
 
@@ -21,13 +22,13 @@ t('constructor', t => {
 t("should enumerate keys", t => {
   let iterator = TestEnum[Enum.keys]()
   t.truthy(isIterator(iterator))
-  t.deepEqual(new Set(iterator), new Set(['b', 'a']))
+  t.truthy(setEqual(iterator, ['b', 'a']))
 })
 
 t("should enumerate values", t => {
   let iterator = TestEnum[Enum.values]()
   t.truthy(isIterator(iterator))
-  t.deepEqual(new Set(iterator), new Set([TestEnum.b, TestEnum.a]))
+  t.truthy(setEqual(iterator, [TestEnum.b, TestEnum.a]))
 })
 
 t('size', t => {
@@ -47,7 +48,7 @@ t('hasValue', t => {
 
 t('Symbol.iterator', t => {
   let iterator = TestEnum[Symbol.iterator]()
-  t.deepEqual(new Set(iterator), new Set([['a', TestEnum.a], ['b', TestEnum.b]]))
+  t.truthy(deepSetEqual(iterator, [['a', TestEnum.a], ['b', TestEnum.b]]))
 })
 
 t('underscored properties', t => {
@@ -61,3 +62,33 @@ t('underscored properties', t => {
   let TestEnum2 = new Enum('keys', '_keys')
   t.is(TestEnum2.__keys, TestEnum[Enum.keys])
 })
+
+function setEqual(a, b) {
+  let setB = new Set(b)
+  for (let x of [...a]) {
+    if (setB.has(x)) {
+      setB.delete(x)
+    }
+    else {
+      return false
+    }
+  }
+  return setB.size === 0
+}
+
+function deepSetEqual(a, b) {
+  let arrA = [...a]
+  let arrB = [...b]
+  let indexB = 0
+  for (let itemA of arrA) {
+    indexB = 0
+    for (let itemB of arrB) {
+      if (compare(itemA, itemB).pass) {
+        arrB.splice(indexB, 1)
+        break
+      }
+      indexB++
+    }
+  }
+  return arrB.length === 0
+}
