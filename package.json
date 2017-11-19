@@ -22,7 +22,7 @@
     "@f/is-iterator": "^1.0.1",
     "ava": "^0.21.0",
     "concordance": "^2.0.0",
-    "coveralls": "^2.11.15",
+    "coveralls": "^3.0.0",
     "nyc": "^11.0.3"
   },
   "engines": {
