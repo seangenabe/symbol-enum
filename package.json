@@ -20,7 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@f/is-iterator": "^1.0.1",
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "concordance": "^2.0.0",
     "coveralls": "^3.0.0",
     "nyc": "^11.0.3"
