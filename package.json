@@ -23,7 +23,7 @@
     "ava": "^0.25.0",
     "concordance": "^2.0.0",
     "coveralls": "^3.0.0",
-    "nyc": "^11.0.3"
+    "nyc": "^12.0.1"
   },
   "engines": {
     "node": ">=6"
