@@ -20,10 +20,10 @@
   "license": "MIT",
   "devDependencies": {
     "@f/is-iterator": "^1.0.1",
-    "ava": "^0.25.0",
-    "concordance": "^2.0.0",
-    "coveralls": "^3.0.0",
-    "nyc": "^12.0.1"
+    "ava": "^3.9.0",
+    "concordance": "^5.0.0",
+    "coveralls": "^3.1.0",
+    "nyc": "^15.1.0"
   },
   "engines": {
     "node": ">=6"
