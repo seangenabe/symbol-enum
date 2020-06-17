@@ -1,8 +1,10 @@
 language: node_js
 node_js:
   - "6"
-  - "7"
   - "8"
+  - "10"
+  - "12"
+  - "latest"
 sudo: false
 after_success:
   - "npm run coverage"
